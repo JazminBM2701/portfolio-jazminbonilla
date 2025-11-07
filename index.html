@@ -1,0 +1,495 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Prism: tema + núcleo + C++ + líneas -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Prism: tema + line numbers -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-vsc-dark-plus.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.css">
+
+    <!-- Prism core + lenguaje C++ + line numbers -->
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.css">
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
+<script src="script.js"></script>
+<body>
+    <!-- Barra de navegación -->
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="#presentation" class="brand" aria-label="Ir al inicio">
+                <span class="brand__dot"></span> Jazmín Bonilla
+            </a>
+
+            <!-- Botón menú móvil -->
+            <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="nav__bar"></span>
+                <span class="nav__bar"></span>
+                <span class="nav__bar"></span>
+            </button>
+
+            <ul class="nav__list">
+                <li><a class="nav__link" href="#projects">Proyectos</a></li>
+                <li><a class="nav__link" href="#about">Sobre mí</a></li>
+                <li><a class="nav__link" href="#contact">Contacto</a></li>
+                <li><a class="btn btn--ghost" href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero / Presentación -->
+    <section id="presentation" class="hero">
+        <div class="container hero__grid">
+            <div class="hero__copy">
+                <p class="eyebrow">Desarrolladora principiante</p>
+                <h1>Hola, soy <span class="accent">Jazmín</span> — construyo soluciones lógicas y limpias.</h1>
+                <p class="subtitle">
+                    Me gusta convertir ideas en proyectos funcionales usando HTML, CSS, un poquito de JS y mi base lógica de C++.
+                </p>
+                <div class="hero__cta">
+                    <a href="#projects" class="btn btn--primary">Ver proyectos</a>
+                    <a href="#contact" class="btn btn--secondary">Contáctame</a>
+                </div>
+                <ul class="badges">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>C++</li>
+                </ul>
+            </div>
+
+            <div class="hero__visual">
+                <!-- Reemplaza por tu imagen en assets/ si quieres -->
+                <div class="device-mock">
+                    <div class="device-mock__screen">
+                        <span class="pulse"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section__head">
+                <h2 class="section__title">Proyectos</h2>
+                <p class="section__desc">Algunos ejercicios y mini-apps que muestran mi forma de resolver problemas.</p>
+            </div>
+
+            <!-- EJERCICIO 1 – CONVERSIÓN DE DÍAS -->
+            <article class="card">
+                <div class="card__body">
+                    <h3 class="card__title">Conversión de días (while / do-while)</h3>
+                    <p class="card__text">
+                        Programa que convierte un número total de días en años, meses, semanas y días restantes,
+                        implementado con bucles <code>while</code> y <code>do while</code>.
+                    </p>
+
+                    <details>
+                        <summary>Ver código C++ (while)</summary>
+                        <pre class="line-numbers"><code class="language-cpp">
+#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+    int diasTotales;
+    cout &lt;&lt; "Ingrese el numero de dias: ";
+    cin &gt;&gt; diasTotales;
+    int yrs = 0, meses = 0, semanas = 0, dias = 0;
+
+    while (diasTotales &gt;= 365) {
+        yrs++;
+        diasTotales -= 365;
+    }
+    while (diasTotales &gt;= 30) {
+        meses++;
+        diasTotales -= 30;
+    }
+    while (diasTotales &gt;= 7) {
+        semanas++;
+        diasTotales -= 7;
+    }
+    dias = diasTotales;
+
+    cout &lt;&lt; yrs &lt;&lt; " anios" &lt;&lt; endl;
+    cout &lt;&lt; meses &lt;&lt; " meses" &lt;&lt; endl;
+    cout &lt;&lt; semanas &lt;&lt; " semanas" &lt;&lt; endl;
+    cout &lt;&lt; dias &lt;&lt; " dias" &lt;&lt; endl;
+    return 0;
+}
+      </code></pre>
+                    </details>
+
+                    <details>
+                        <summary>Ver código C++ (do-while)</summary>
+                        <pre class="line-numbers"><code class="language-cpp">
+#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+    int diasTotales;
+    cout &lt;&lt; "Ingrese el numero de dias: ";
+    cin &gt;&gt; diasTotales;
+    int yrs = 0, meses = 0, semanas = 0, dias = 0;
+
+    if (diasTotales &gt;= 365) {
+        do {
+            yrs++;
+            diasTotales -= 365;
+        } while (diasTotales &gt;= 365);
+    }
+    if (diasTotales &gt;= 30) {
+        do {
+            meses++;
+            diasTotales -= 30;
+        } while (diasTotales &gt;= 30);
+    }
+    if (diasTotales &gt;= 7) {
+        do {
+            semanas++;
+            diasTotales -= 7;
+        } while (diasTotales &gt;= 7);
+    }
+    dias = diasTotales;
+
+    cout &lt;&lt; yrs &lt;&lt; " anios" &lt;&lt; endl;
+    cout &lt;&lt; meses &lt;&lt; " meses" &lt;&lt; endl;
+    cout &lt;&lt; semanas &lt;&lt; " semanas" &lt;&lt; endl;
+    cout &lt;&lt; dias &lt;&lt; " dias" &lt;&lt; endl;
+    return 0;
+}
+      </code></pre>
+                    </details>
+                    <!-- Bloque para probar el programa -->
+                    <div class="demo">
+                        <label class="form__field">
+                            <span>Ingrese número de días</span>
+                            <input type="number" id="dias-input" min="0" placeholder="Ej. 800" />
+                        </label>
+
+                        <div class="demo__buttons">
+                            <button class="btn btn--primary" onclick="runDiasWhile()">Ejecutar (while)</button>
+                            <button class="btn btn--secondary" onclick="runDiasDoWhile()">Ejecutar (do-while)</button>
+                        </div>
+
+                        <pre class="demo__output"><code id="dias-output"></code></pre>
+                    </div>
+                </div>
+            </article>
+
+            <!-- EJERCICIO 2 – FIZZBUZZ -->
+            <article class="card">
+                <div class="card__body">
+                    <h3 class="card__title">Contador con múltiplos (FizzBuzz)</h3>
+                    <p class="card__text">
+                        Imprime del 1 al 100, reemplazando múltiplos de 3 y 5 por “fizz”, “buzz” o “fizzbuzz”.
+                    </p>
+
+                    <details>
+                        <summary>Ver código C++</summary>
+                        <pre class="line-numbers"><code class="language-cpp">
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int contador = 1;
+    while (contador &lt;= 100 ) {
+        if (contador % 3 == 0 &amp;&amp; contador % 5 == 0) {
+            cout &lt;&lt; "fizzbuzz" &lt;&lt; endl;
+        }
+        else if (contador % 3 == 0) {
+            cout &lt;&lt; "fizz" &lt;&lt; endl;
+        }
+        else if (contador % 5 == 0) {
+            cout &lt;&lt; "buzz" &lt;&lt; endl;
+        }
+        else {
+            cout &lt;&lt; contador &lt;&lt; endl;
+        }
+        contador++;
+    }
+    return 0;
+}
+      </code></pre>
+                    </details>
+
+                    <div class="demo">
+                        <p>Demo (JS equivalente):</p>
+                        <button class="btn btn--primary" onclick="runFizzBuzz()">Ejecutar</button>
+                        <pre class="demo__output"><code id="fizzbuzz-output"></code></pre>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card__body">
+                    <h3 class="card__title">Verificador de anagramas</h3>
+                    <p class="card__text">Determina si dos palabras son anagramas (ignora mayúsculas).</p>
+
+                    <details>
+                        <summary>Ver código C++</summary>
+                        <pre class="line-numbers"><code class="language-cpp">
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;string&gt;
+using namespace std;
+
+bool sonAnagramas(string palabra1, string palabra2) {
+    transform(palabra1.begin(), palabra1.end(), palabra1.begin(), ::tolower);
+    transform(palabra2.begin(), palabra2.end(), palabra2.begin(), ::tolower);
+    if (palabra1 == palabra2) return false;
+    sort(palabra1.begin(), palabra1.end());
+    sort(palabra2.begin(), palabra2.end());
+    return palabra1 == palabra2;
+}
+
+int main() {
+    string palabra1, palabra2;
+    cout &lt;&lt; "Ingrese la primera palabra: ";
+    cin &gt;&gt; palabra1;
+    cout &lt;&lt; "Ingrese la segunda palabra: ";
+    cin &gt;&gt; palabra2;
+    if (sonAnagramas(palabra1, palabra2)) {
+        cout &lt;&lt; "Las palabras son anagramas." &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; "Las palabras NO son anagramas." &lt;&lt; endl;
+    }
+    return 0;
+}
+      </code></pre>
+                    </details>
+
+                    <div class="demo">
+                        <div class="grid" style="grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px">
+                            <label class="form__field"><span>Palabra 1</span><input id="ana-a" type="text" placeholder="Roma" /></label>
+                            <label class="form__field"><span>Palabra 2</span><input id="ana-b" type="text" placeholder="Amor" /></label>
+                        </div>
+                        <button class="btn btn--primary" onclick="runAnagramas()">Comprobar</button>
+                        <pre class="demo__output"><code id="ana-output"></code></pre>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card__body">
+                    <h3 class="card__title">Conversor decimal → binario</h3>
+                    <p class="card__text">Convierte un entero decimal a binario sin funciones integradas.</p>
+
+                    <details>
+                        <summary>Ver código C++</summary>
+                        <pre class="line-numbers"><code class="language-cpp">
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+string decimalBinario(int numero) {
+    if (numero == 0) return "0";
+    string binario = "";
+    while (numero &gt; 0) {
+        int residuo = numero % 2;
+        binario = to_string(residuo) + binario;
+        numero /= 2;
+    }
+    return binario;
+}
+
+int main() {
+    int numero;
+    cout &lt;&lt; "Ingrese el numero decimal a convertir : ";
+    cin &gt;&gt; numero;
+    cout &lt;&lt; "El numero en binario es: " &lt;&lt; decimalBinario(numero) &lt;&lt; endl;
+    return 0;
+}
+      </code></pre>
+                    </details>
+
+                    <div class="demo">
+                        <label class="form__field">
+                            <span>Número decimal</span>
+                            <input id="decbin-n" type="number" min="0" placeholder="Ej. 25" />
+                        </label>
+                        <button class="btn btn--primary" onclick="runDecBin()">Convertir</button>
+                        <pre class="demo__output"><code id="decbin-out"></code></pre>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card__body">
+                    <h3 class="card__title">Verificador de palíndromos</h3>
+                    <p class="card__text">Limpia el texto (minúsculas, sin tildes, solo alfanumérico) y verifica si es palíndromo.</p>
+
+                    <details>
+                        <summary>Ver código C++</summary>
+                        <pre class="line-numbers"><code class="language-cpp">
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+string limpiarTexto(string texto) {
+    string limpio = "";
+    for (char c : texto) {
+        c = tolower(c);
+        if (c == 'á') c = 'a';
+        else if (c == 'é') c = 'e';
+        else if (c == 'í') c = 'i';
+        else if (c == 'ó') c = 'o';
+        else if (c == 'ú') c = 'u';
+        if (isalnum(c)) limpio += c;
+    }
+    return limpio;
+}
+
+bool esPalindromo(string texto) {
+    string limpio = limpiarTexto(texto);
+    string invertido = limpio;
+    reverse(invertido.begin(), invertido.end());
+    return limpio == invertido;
+}
+
+int main() {
+    string texto;
+    cout &lt;&lt; "Ingrese un texto: ";
+    getline(cin, texto); 
+    if (esPalindromo(texto)) {
+        cout &lt;&lt; "El texto es un palindromo." &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; "El texto NO es un palindromo." &lt;&lt; endl;
+    }
+    return 0;
+}
+      </code></pre>
+                    </details>
+
+                    <div class="demo">
+                        <label class="form__field">
+                            <span>Texto</span>
+                            <input id="pal-text" type="text" placeholder="Ana lleva al oso la avellana" />
+                        </label>
+                        <button class="btn btn--primary" onclick="runPalindromo()">Verificar</button>
+                        <pre class="demo__output"><code id="pal-out"></code></pre>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card__body">
+                    <h3 class="card__title">MCD y MCM</h3>
+                    <p class="card__text">Implementación del algoritmo de Euclides (iterativo) para MCD y fórmula del MCM.</p>
+
+                    <details>
+                        <summary>Ver código C++</summary>
+                        <pre class="line-numbers"><code class="language-cpp">
+#include &lt;iostream&gt;
+#include &lt;cstdlib&gt;
+using namespace std;
+
+int MCD(int a, int b) {
+    while (b != 0) {
+        int residuo = a % b;
+        a = b;
+        b = residuo;
+    }
+    return abs(a);
+}
+
+int mcm(int a, int b) {
+    return abs(a * b) / MCD(a, b);
+}
+
+int main() {
+    int num1, num2;
+    cout &lt;&lt; "Ingrese el primer numero: ";
+    cin &gt;&gt; num1;
+    cout &lt;&lt; "Ingrese el segundo numero: ";
+    cin &gt;&gt; num2;
+    cout &lt;&lt; "El MCD de " &lt;&lt; num1 &lt;&lt; " y " &lt;&lt; num2 &lt;&lt; " es: " &lt;&lt; MCD(num1, num2) &lt;&lt; endl;
+    cout &lt;&lt; "El mcm de " &lt;&lt; num1 &lt;&lt; " y " &lt;&lt; num2 &lt;&lt; " es: " &lt;&lt; mcm(num1, num2) &lt;&lt; endl;
+    return 0;
+}
+      </code></pre>
+                    </details>
+
+                    <div class="demo">
+                        <div class="grid" style="grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px">
+                            <label class="form__field"><span>A</span><input id="mcd-a" type="number" placeholder="Ej. 12" /></label>
+                            <label class="form__field"><span>B</span><input id="mcd-b" type="number" placeholder="Ej. 18" /></label>
+                        </div>
+                        <button class="btn btn--primary" onclick="runMcdMcm()">Calcular</button>
+                        <pre class="demo__output"><code id="mcd-out"></code></pre>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- Sobre mí -->
+            <section id="about" class="section section--alt">
+                <div class="container about">
+                    <img class="about__avatar" src="assets/foto-jazmin.jpeg" alt=" " />
+                    <div class="about__copy">
+                        <h2 class="section__title">Sobre mí</h2>
+                        <p>
+                            Soy estudiante de programación con enfoque en bases sólidas de lógica (C++) y presentación web (HTML/CSS).
+                            Me motiva aprender, cuidar el detalle y crear experiencias claras y accesibles.
+                        </p>
+                        <ul class="about__list">
+                            <li>✔ Diseño responsive</li>
+                            <li>✔ Buenas prácticas y orden</li>
+                            <li>✔ Enfoque en UX simple</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contacto -->
+            <section id="contact" class="section">
+                <div class="container">
+                    <div class="section__head">
+                        <h2 class="section__title">Contacto</h2>
+                        <p class="section__desc">¿Hablamos? Puedes escribirme por correo o usar el formulario.</p>
+                    </div>
+
+                    <div class="contact">
+                        <div class="contact__info">
+                            <a class="contact__link" href="mailto:anajbonillam@gmail.com">anajbonillam@gmail.com</a>
+                            <a class="contact__link" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+                            <a class="contact__link" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+                        </div>
+
+                        <!-- Formulario simple (sin backend). Usa mailto como fallback) -->
+                        <form class="form" action="mailto:anajbonillam@gmail.com" method="post" enctype="text/plain">
+                            <label class="form__field">
+                                <span>Nombre</span>
+                                <input type="text" name="nombre" required />
+                            </label>
+                            <label class="form__field">
+                                <span>Email</span>
+                                <input type="email" name="email" required />
+                            </label>
+                            <label class="form__field">
+                                <span>Mensaje</span>
+                                <textarea name="mensaje" rows="4" required></textarea>
+                            </label>
+                            <button class="btn btn--primary" type="submit">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pie -->
+            <footer class="site-footer">
+                <div class="container footer__grid">
+                    <small>© <span id="year"></span> Jazmín Bonilla</small>
+                    <a href="#presentation" class="to-top" aria-label="Volver arriba">↑</a>
+                </div>
+            </footer>
+
+            <script src="script.js"></script>
+</body>
+</html>
